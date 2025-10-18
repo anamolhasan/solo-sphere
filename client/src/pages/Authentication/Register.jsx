@@ -1,6 +1,6 @@
 import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
-import bgImg from "../../assets/images/login.jpg";
+import bgImg from "../../assets/images/register.jpg";
 import logo from "../../assets/images/logo.png";
 import { Link } from 'react-router';
 
