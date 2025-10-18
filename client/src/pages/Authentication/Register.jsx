@@ -18,14 +18,14 @@ const Register = () => {
       const name = form.name.value
       const photo = form.photo.value 
       const pass = form.password.value
-      console.log(email, name. photo. pass)
+      console.log(email, name, photo, pass)
 
       try {
         // User Registration
         const result = await createUser(email, pass)
         console.log(result)
         await updateUserProfile(name, photo)
-        setUser({...result.user, photo, displayName: name})
+        setUser({...result.user, PhotoURL: photo, displayName: name})
         toast.success("Signup Successful")
         navigate('/')
       } catch (error) {
