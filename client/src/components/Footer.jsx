@@ -33,7 +33,7 @@ const Footer = () => {
 
         <div className="flex flex-col items-center sm:flex-row sm:justify-between">
             <p className="text-sm text-gray-500 dark:text-gray-300">© Copyright {date}. All Rights Reserved.</p>
-            <h2 className='font-edu-TAS-Beginner'>Develop by Anamol Hasan</h2>
+            <h2 className='font-edu-TAS-Beginner font-bold hover:font-roboto hover:text-green-500'>Develop by Anamol Hasan</h2>
             <div className="flex -mx-2">
                 <a href="#" className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400" aria-label="Reddit">
                     <FaRedditAlien className='text-xl'/>

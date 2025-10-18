@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import bgImg from "../../assets/images/register.jpg";
 import logo from "../../assets/images/logo.png";
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import { AuthContext } from '../../provider/AuthContext';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+  const navigate = useNavigate()
+  const { signInWithGoogle, createUser, updateUserProfile, setUser } =
+    useContext(AuthContext)
+
+      // Google Signin
+    const handleGoogleSignIn = async() => {
+        try {
+            await signInWithGoogle()
+            toast.success('Signin Successful')
+            navigate('/')
+        } catch (error) {
+            console.log(error)
+            toast.error(error?.message)
+        }
+    }
+
+
   return (
-     <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
+     <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl my-10">
       <div
-        className="hidden bg-cover lg:block lg:w-1/2"
-        style={{ backgroundImage: `url(${bgImg}` }}
+        className="hidden bg-cover bg-center lg:block lg:w-1/2"
+        style={{ backgroundImage: `url(${bgImg})` }}
       ></div>
 
       <div className="w-full px-6 py-8 md:px-8 lg:w-1/2">
@@ -25,9 +44,10 @@ const Register = () => {
           Welcome back!
         </p>
 
-        <a
-          href="#"
-          className="flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
+        {/* google login */}
+        <div
+          onClick={handleGoogleSignIn}
+          className="cursor-pointer flex items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600"
         >
           <div className="pl-4 py-2">
             <FcGoogle className="text-2xl"/>
@@ -36,22 +56,23 @@ const Register = () => {
           <span className="w-5/6 px-4 py-3 font-bold text-center">
             Sign in with Google
           </span>
-        </a>
+        </div>
 
+        {/* ------------- */}
         <div className="flex items-center justify-between mt-4">
           <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
-          <a
-            href="#"
+          <p
             className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
           >
-            or login with email
-          </a>
+            or Register with email
+          </p>
 
           <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
         </div>
-
-        <div className="mt-4">
+      {/* email and password with register */}
+       <form >
+          <div className="mt-4">
           <label
             className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
             for="LoggingEmailAddress"
@@ -60,6 +81,7 @@ const Register = () => {
           </label>
           <input
             id="LoggingEmailAddress"
+            placeholder='anamolhasan.job@gmail.com'
             className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
             type="email"
           />
@@ -73,26 +95,22 @@ const Register = () => {
             >
               Password
             </label>
-            <a
-              href="#"
-              className="text-xs text-gray-500 dark:text-gray-300 hover:underline"
-            >
-              Forget Password?
-            </a>
           </div>
 
           <input
             id="loggingPassword"
+            placeholder='enter your password'
             className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300"
             type="password"
           />
         </div>
 
         <div className="mt-6">
-          <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
-            Sign Up
+          <button type="submit" className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-900 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+            Register
           </button>
         </div>
+       </form>
 
         <div className="flex items-center justify-between mt-4">
           <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>

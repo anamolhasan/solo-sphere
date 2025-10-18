@@ -6,14 +6,14 @@ import logo from '../assets/images/logo.png'
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext)
   return (
-    <div className="navbar bg-base-100 shadow-sm container px-4 mx-auto">
-  <div className="flex-1">
+    <div className="navbar bg-base-100 shadow-sm container px-4 mx-auto flex justify-between">
+  <div className="">
     <Link to={'/'} className='flex gap-2 items-center'>
         <img className='w-auto h-7' src={logo} alt="solo sphere logo" />
         <span className='font-bold'>SoloSphere</span>
     </Link>
   </div>
-  <div className="flex-none">
+  <div className="">
        <ul className='menu menu-horizontal px-1'>
             <li>
                 <Link to={'/'}>Home</Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
       role="button" 
       className="btn btn-ghost btn-circle avatar"
       >
-        <div className="w-10 rounded-full">
+        <div className="w-10 rounded-full" title={user?.displayName}>
           <img
             referrerPolicy='no-referrer'
             alt="User Profile Photo"
@@ -57,7 +57,7 @@ const Navbar = () => {
           <Link to={'/bid-requests'} className='justify-between'>Bid Requests</Link>
         </li>
         <li className='mt-2'>
-          <button onClick={logOut} className='bg-gray-200 block text-center'>Logout</button>
+          <button onClick={logOut} className='bg-gray-200 block text-black text-center'>Logout</button>
         </li>
       </ul>
     </div>
