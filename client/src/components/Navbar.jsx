@@ -6,7 +6,7 @@ import logo from '../assets/images/logo.png'
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext)
   return (
-    <div className="navbar bg-base-100 shadow-sm container px-4 mx-auto flex justify-between">
+    <div className="navbar bg-base-100 shadow-sm container px-4 mx-auto flex justify-between sticky top-0 z-50 ">
   <div className="">
     <Link to={'/'} className='flex gap-2 items-center'>
         <img className='w-auto h-7' src={logo} alt="solo sphere logo" />
@@ -28,7 +28,7 @@ const Navbar = () => {
             )}
        </ul>
     {user && (
-         <div className="dropdown dropdown-end">
+         <div className="dropdown dropdown-end z-50">
       <div 
       tabIndex={0} 
       role="button" 
@@ -43,7 +43,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow backdrop-blur-md">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow backdrop-blur-2xl">
         <li>
           <Link to={'/add-job'} className='justify-between'>Add Job</Link>
         </li>
