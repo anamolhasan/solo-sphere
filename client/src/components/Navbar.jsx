@@ -43,7 +43,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow backdrop-blur-md">
         <li>
           <Link to={'/add-job'} className='justify-between'>Add Job</Link>
         </li>
@@ -57,7 +57,7 @@ const Navbar = () => {
           <Link to={'/bid-requests'} className='justify-between'>Bid Requests</Link>
         </li>
         <li className='mt-2'>
-          <button onClick={logOut} className='bg-gray-200 block text-black text-center'>Logout</button>
+          <button onClick={logOut} className='bg-gray-900 hover:bg-gray-600 text-white block  text-center'>Logout</button>
         </li>
       </ul>
     </div>
