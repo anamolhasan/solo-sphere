@@ -7,8 +7,8 @@
 
   Resources:
 
-- [React](https://merakiui.com/components)
-- [React-icons](https://merakiui.com/components)
+- [React](https://react.dev/)
+- [React-icons](https://react-icons.github.io/react-icons/)
 - [React Router](https://reactrouter.com/en/main)
 - [Meraki UI - Components](https://merakiui.com/components)
 - [react-tabs](https://www.npmjs.com/package/react-tabs)
@@ -19,5 +19,6 @@
 - [Firebase](https://console.firebase.google.com/)
 - [MongoDB](https://www.mongodb.com/)
 - [React-Hot-Toast](https://react-hot-toast.com/)
+- [React Date Picker](https://www.npmjs.com/package/react-datepicker)
 - [date-fns](https://date-fns.org/)
 - [axios](https://axios-http.com/docs/intro)

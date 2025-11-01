@@ -3,10 +3,14 @@ import { format } from 'date-fns'
 import { useLoaderData } from 'react-router'
 import { AuthContext } from '../../provider/AuthContext'
 import { use } from 'react'
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from 'react'
 
 
 const JobDetails = () => {
     const {user} = use(AuthContext)
+      const [startDate, setStartDate] = useState(new Date());
     const job = useLoaderData()
      const {
     title,
@@ -18,9 +22,23 @@ const JobDetails = () => {
     _id,
     buyer_email,
   } = job || {}
-  console.log(job)
+ 
+  
+  const handleFormSubmission = async e => {
+    e.preventDefault()
+    const form = e.target 
+    const jobId = _id
+    const price = parseFloat(form.price.value)
+    const comment = form.comment.value
+    const deadline = startDate
+    const email = user?.email
+    const buyer_email = buyer_email
+    const status = 'Pending'
+  }
+
+//    part 05 conceptual sessions time = 13:48 pro conc
   return (
-    <div className='flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto '>
+    <div className='flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto my-20'>
       {/* Job Details */}
       <div className='flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[350px]'>
         <div className='flex items-center justify-between'>
@@ -112,11 +130,11 @@ const JobDetails = () => {
               <label className='text-gray-700'>Deadline</label>
 
               {/* Date Picker Input Field */}
-              {/* <DatePicker
+              <DatePicker
                 className='border p-2 rounded-md'
                 selected={startDate}
                 onChange={date => setStartDate(date)}
-              /> */}
+              />
             </div>
           </div>
 

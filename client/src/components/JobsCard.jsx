@@ -5,6 +5,7 @@ import { format } from 'date-fns'
 const JobsCard = ({job}) => {
      const { job_title, deadline, category, min_price, max_price, description, _id } =
     job || {}
+
   return (
      <Link
       to={`/job/${_id}`}
